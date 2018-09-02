@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "AppConfigurator";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div id="app">
+        <div v-if="!configItems.length">Loading...</div>
+        <div v-if="configItems.length">
+            <div v-for="config in configItems" :key="config.Id">
+                <input type="number" placeholder="id" v-model="config.Id" />
+                <input type="text" placeholder="application name" v-model="config.ApplicationName" />
+                <input type="text" placeholder="name" v-model="config.Name" />
+                <select v-model="config.Type">
+                    <option v-for="option in Types" v-bind:value="option.value">
+                        {{ option.text }}
+                    </option>
+                </select>
+                <input type="text" placeholder="value" v-model="config.Value" />
+                <input type="checkbox" placeholder="is active" v-model="config.IsActive" />
+                <label> is Active</label>
+                <button v-on:click="deleteItem(config)">Delete</button>
+            </div>
+            <br />
+            <button v-on:click="addNewLine">Add</button>
+            <button v-on:click="save">Save</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="~/js/app.js"></script>
+</body>
+</html>

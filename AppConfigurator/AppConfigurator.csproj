@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>202cc805-90ab-462f-8fad-21b72085bc0b</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppConfigurator.Data\AppConfigurator.Data.csproj" />
+    <ProjectReference Include="..\AppConfigurator.Library\AppConfigurator.Library.csproj" />
+    <ProjectReference Include="..\AppConfigurator.Service\AppConfigurator.Service.csproj" />
+  </ItemGroup>
+
+</Project>

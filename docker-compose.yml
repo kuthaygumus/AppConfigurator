@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+
+  redis: 
+    image: redis
+    restart: always
+    ports: 
+      - "6379:6379"
+
+  appconfigurator:
+    image: ${DOCKER_REGISTRY}appconfigurator
+    build:
+      context: .
+      dockerfile: AppConfigurator\Dockerfile
+    environment:
+      REDIS_URL: redis
+      ABORT_CONNECT: 'false'
